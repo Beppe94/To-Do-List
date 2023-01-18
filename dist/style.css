@@ -1,6 +1,92 @@
+*, *::after, *::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+button {
+    cursor: pointer;
+}
+
 .nav {
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    padding: 1.4rem;
+    gap: 1rem;
+    background-color: cadetblue;
+}
+
+.nav button {
+    width: 35px;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 10px;
+}
+
+.nav-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-title span {
+    scale: 1.4;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    padding: 1.3rem;
+    height: 100vh;
+    gap: 10rem;
+    background-color: crimson;
+}
+
+.sidebar-topHalf {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sidebar-topHalf button {
+    background: none;
+    border: none;
+    height: 30px;
+}
+
+.sidebar-bottomHalf {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.bottomHalf {
+    display: flex;
+    gap: 1rem;
+}
+
+.bottomHalf button {
+    border: none;
+    background: none;
+}
+
+.addTask {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 3rem;
+}
+
+.addTask button {
+    background: none;
+    border: none;
+    scale: 2.5;
+}
+
+.modal {
+    visibility: hidden;
 }
