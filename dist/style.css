@@ -34,7 +34,20 @@ button {
     scale: 1.4;
 }
 
+.main {
+    display: grid;
+    grid-template-columns:  min-content 1fr;
+}
+
+.tasks {
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+
+}
+
 .sidebar {
+    grid-column: 1;
     display: flex;
     flex-direction: column;
     width: fit-content;
@@ -88,5 +101,12 @@ button {
 }
 
 .modal {
+    position: absolute;
+    top: 50%;
+    left: 35%;
     visibility: hidden;
+}
+
+.open-modal {
+    visibility: visible;
 }
