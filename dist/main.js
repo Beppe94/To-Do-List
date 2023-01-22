@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modal */ \"./src/modal.js\");\n\n\nconst taskButton = document.getElementById('taskButton');\nconst modal = document.querySelector('.modal')\n\n\ndocument.addEventListener('click', function(e) {\n    if(e.target.innerText == 'add_circle') {\n        (0,_modal__WEBPACK_IMPORTED_MODULE_0__.openModal)();\n    } else if(e.target.closest('.modal')){\n        return\n    } else {\n        (0,_modal__WEBPACK_IMPORTED_MODULE_0__.closeModal)();\n    }\n})\n\n\n\n//# sourceURL=webpack://to-do-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modal */ \"./src/modal.js\");\n/* harmony import */ var _tasks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tasks */ \"./src/tasks.js\");\n\n\n\ndocument.addEventListener('click', function(e) {\n    if(e.target.innerText == 'add_circle') {\n        (0,_modal__WEBPACK_IMPORTED_MODULE_0__.openModal)();\n    } else if(e.target.closest('.modal')){\n        return\n    } else {\n        (0,_modal__WEBPACK_IMPORTED_MODULE_0__.closeModal)();\n    }\n})\n\nconst submitBtn = document.getElementById('submitBtn');\n\nsubmitBtn.addEventListener('click', _tasks__WEBPACK_IMPORTED_MODULE_1__.submit);\n\n\n//# sourceURL=webpack://to-do-list/./src/index.js?");
 
 /***/ }),
 
@@ -27,6 +27,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"closeModal\": () => (/* binding */ closeModal),\n/* harmony export */   \"openModal\": () => (/* binding */ openModal)\n/* harmony export */ });\nconst popUp = document.getElementById('popup');\n\nfunction openModal() {\n    popUp.classList.add('open-modal');\n}\n\nfunction closeModal() {\n    popUp.classList.remove('open-modal');\n}\n\n\n\n//# sourceURL=webpack://to-do-list/./src/modal.js?");
+
+/***/ }),
+
+/***/ "./src/tasks.js":
+/*!**********************!*\
+  !*** ./src/tasks.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"submit\": () => (/* binding */ submit)\n/* harmony export */ });\n/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modal */ \"./src/modal.js\");\n\n\nclass Tasks {\n    constructor(name, description, dueDate, priority) {\n        this.name = name;\n        this.description = description;\n        this.dueDate = dueDate;\n        this.priority = priority;\n    }\n}\n\nconst taskArray = [];\n\nfunction getTaskInput() {\n    const taskName = document.getElementById('name').value;\n    const taskDesc = document.getElementById('description').value;\n    const taskDate = document.getElementById('date').value;\n    const taskPrio = document.getElementById('priority').value;\n    const errorMsg = document.getElementById('error-msg');\n\n    if(taskName != '') {\n        return new Tasks(taskName, taskDesc, taskDate, taskPrio);\n    } else {\n        errorMsg.textContent = 'Task must be named';\n    }\n}\n\nconst date = new Date();\nconsole.log(date);\nconst tasksId = document.getElementById('tasksId');\n\nfunction displayTask(tasks) {\n    const taskDiv = document.createElement('div');\n\n    const taskName = document.createElement('h3');\n    const taskDescription = document.createElement('p');\n    const taskDate = document.createElement('p');\n    const taskPrio = document.createElement('p');\n\n    taskName.innerText = tasks.name;\n    taskDescription.innerText = tasks.description;\n    taskDate.innerText = tasks.dueDate;\n    taskPrio.innerText = tasks.priority;\n\n    taskDiv.appendChild(taskName);\n    taskDiv.appendChild(taskDescription);\n    taskDiv.appendChild(taskDate);\n    taskDiv.appendChild(taskPrio);\n\n    tasksId.appendChild(taskDiv)\n}\n\nfunction submit(e) {\n    e.preventDefault();\n    \n    const newTask = getTaskInput();\n    console.log(newTask);\n    taskArray.push(newTask);\n\n    document.querySelector('form').reset()\n    displayTask(newTask)\n    ;(0,_modal__WEBPACK_IMPORTED_MODULE_0__.closeModal)()\n}\n\n\n\n//# sourceURL=webpack://to-do-list/./src/tasks.js?");
 
 /***/ })
 

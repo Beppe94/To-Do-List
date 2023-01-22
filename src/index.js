@@ -1,8 +1,5 @@
 import { openModal, closeModal } from "./modal";
-
-const taskButton = document.getElementById('taskButton');
-const modal = document.querySelector('.modal')
-
+import { submit, displayTask} from "./tasks";
 
 document.addEventListener('click', function(e) {
     if(e.target.innerText == 'add_circle') {
@@ -14,3 +11,6 @@ document.addEventListener('click', function(e) {
     }
 })
 
+const submitBtn = document.getElementById('submitBtn');
+
+submitBtn.addEventListener('click', submit);

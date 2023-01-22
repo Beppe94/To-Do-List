@@ -41,7 +41,9 @@ button {
 .tasks {
     grid-column: 2;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin: 0 auto 0 auto;
 
 }
 
@@ -101,6 +103,7 @@ button {
 
 .modal {
     position: absolute;
+    border: 3px solid black;
     border-radius: 10px;
     top: 38%;
     left: 32%;
@@ -109,6 +112,8 @@ button {
     height: 350px;
     padding: 1.5rem;
     visibility: hidden;
+    transition: .3s;
+    scale: 0;
 }
 
 .modal form {
@@ -136,5 +141,6 @@ button {
 }
 
 .open-modal {
+    scale: 1;
     visibility: visible;
 }
