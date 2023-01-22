@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 
-
 button {
     cursor: pointer;
 }
@@ -102,9 +101,38 @@ button {
 
 .modal {
     position: absolute;
-    top: 50%;
-    left: 35%;
+    border-radius: 10px;
+    top: 38%;
+    left: 32%;
+    background-color: blueviolet;
+    width: 700px;
+    height: 350px;
+    padding: 1.5rem;
     visibility: hidden;
+}
+
+.modal form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.modal form div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal form input {
+    width: 160px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.modal form textarea {
+    resize: none;
+    border-radius: 5px;
 }
 
 .open-modal {

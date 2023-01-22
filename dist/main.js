@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modal */ \"./src/modal.js\");\n\n\nconst taskButton = document.getElementById('taskButton');\nconst modal = document.getElementsByClassName('modal')\n\ntaskButton.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_0__.openModal);\n\n\n\n//# sourceURL=webpack://to-do-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modal */ \"./src/modal.js\");\n\n\nconst taskButton = document.getElementById('taskButton');\nconst modal = document.querySelector('.modal')\n\n\ndocument.addEventListener('click', function(e) {\n    if(e.target.innerText == 'add_circle') {\n        (0,_modal__WEBPACK_IMPORTED_MODULE_0__.openModal)();\n    } else if(e.target.closest('.modal')){\n        return\n    } else {\n        (0,_modal__WEBPACK_IMPORTED_MODULE_0__.closeModal)();\n    }\n})\n\n\n\n//# sourceURL=webpack://to-do-list/./src/index.js?");
 
 /***/ }),
 

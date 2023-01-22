@@ -1,7 +1,16 @@
 import { openModal, closeModal } from "./modal";
 
 const taskButton = document.getElementById('taskButton');
-const modal = document.getElementsByClassName('modal')
+const modal = document.querySelector('.modal')
 
-taskButton.addEventListener('click', openModal);
+
+document.addEventListener('click', function(e) {
+    if(e.target.innerText == 'add_circle') {
+        openModal();
+    } else if(e.target.closest('.modal')){
+        return
+    } else {
+        closeModal();
+    }
+})
 

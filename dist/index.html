@@ -49,17 +49,29 @@
         </div>
     </div>
     <div class="modal" id="popup">
+        <h3>New Task</h3>
         <form>
-            <input type="text" id="name" placeholder="Task Name">
-            <input type="text" id="description" placeholder="Describe the task">
-            <input type="date" id="date">
-            <select id="priority">
-                <option value="low">Low</option>
-                <option value="medium">Medium</option>
-                <option value="high">High</option>
-            </select>
-            <button type="submit">Add</button>
+            <div>
+                <h4>Name</h4>
+                <input type="text" id="name" placeholder="Task Name">
+                <p id="error-msg"></p>
+
+                <h4>Description</h4>
+                <textarea id="description" cols="30" rows="10"></textarea>
+            </div>
+            <div>
+                <h4>Due Date</h4>
+                <input type="date" id="date">   
+
+                <h4>Priority</h4>
+                <select id="priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
         </form>
+        <button type="submit">Add</button>
     </div>
     <div class="addTask">
         <button id="taskButton">
