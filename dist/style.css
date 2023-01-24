@@ -112,27 +112,76 @@ button {
     height: 350px;
     padding: 1.5rem;
     visibility: hidden;
-    transition: .3s;
     scale: 0;
+    transition: .4s;
 }
 
-.modal form {
+.form-div {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    justify-content: center;
-    gap: 1rem;
+    gap: 10px;
+    padding: 1.5rem;
 }
 
-.modal form div {
+.form-div button {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 120px;
+    height: 30px;
+    margin-bottom: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+.left-half {
     display: flex;
+    justify-content: flex-start;
     flex-direction: column;
-    gap: 10px;
+    gap: 1.5rem;
+}
+
+.name-task {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-top: 1rem;
+    gap: .5rem;
+}
+
+.date-task {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.priority-task {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.priority-task select {
+    width: 160px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.descr-task {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-top: 1rem;
+    gap: .5rem;
 }
 
 .modal form input {
     width: 160px;
     height: 30px;
     border-radius: 5px;
+    padding: 5px;
 }
 
 .modal form textarea {
