@@ -1,5 +1,5 @@
 import { openModal, closeModal } from "./modal";
-import { submit, displayTask} from "./tasks";
+import { submit } from "./tasks";
 
 document.addEventListener('click', function(e) {
     if(e.target.innerText == 'add_circle') {
@@ -13,4 +13,7 @@ document.addEventListener('click', function(e) {
 
 const submitBtn = document.getElementById('submitBtn');
 
-submitBtn.addEventListener('click', submit);
+submitBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    submit();
+});

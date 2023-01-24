@@ -49,29 +49,41 @@
         </div>
     </div>
     <div class="modal" id="popup">
-        <h3>New Task</h3>
+        <div>
+            <h3>New Task</h3>
+        </div>
+
         <form>
-            <div>
-                <h4>Name</h4>
-                <input type="text" id="name" placeholder="Task Name">
-                <p id="error-msg"></p>
-
-                <h4>Description</h4>
-                <textarea id="description" cols="30" rows="10"></textarea>
+            <div class="form-div">  
+                <div class="left-half">
+                    <div class="name-task">
+                        <h4>Name</h4>
+                        <input type="text" id="name" placeholder="Task Name">
+                        <p id="error-msg"></p>
+                    </div>
+                    
+                    <div class="date-task">
+                        <h4>Due Date</h4>
+                        <input type="date" id="date"> 
+                    </div>
+                    <div class="priority-task">
+                        <h4>Priority</h4>
+                        <select id="priority">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="descr-task">
+                    <h4>Description</h4>
+                    <textarea id="description" cols="30" rows="10"></textarea>
+                </div>
+                
+                <button id="submitBtn" type="submit">Add</button>
             </div>
-            <div>
-                <h4>Due Date</h4>
-                <input type="date" id="date">   
-
-                <h4>Priority</h4>
-                <select id="priority">
-                    <option value="low">Low</option>
-                    <option value="medium">Medium</option>
-                    <option value="high">High</option>
-                </select>
-            </div>
-            <button id="submitBtn" type="submit">Add</button>
         </form>
+
     </div>
     <div class="addTask">
         <button id="taskButton">
