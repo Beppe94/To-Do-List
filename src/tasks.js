@@ -11,8 +11,6 @@ class Tasks {
 
 const taskArray = [];
 
-const errorMsg = document.getElementById('error-msg');
-
 function getTaskInput() {
     const taskName = document.getElementById('name').value;
     const taskDesc = document.getElementById('description').value;
@@ -22,34 +20,55 @@ function getTaskInput() {
     return new Tasks(taskName, taskDesc, taskDate, taskPrio);
 }
 
+const tasksId = document.getElementById('tasksId');
 
 function displayTask(tasks) {
-    const tasksId = document.getElementById('tasksId');
     const taskDiv = document.createElement('div');
-
+    taskDiv.id = 'card';
+    
     const taskName = document.createElement('h3');
     const taskDescription = document.createElement('p');
     const taskDate = document.createElement('p');
     const taskPrio = document.createElement('p');
 
-    if(taskName.innerText == ''){
-        taskName.innerText = 'My Task'
-    } else {
-        taskName.innerText = tasks.name;
+    taskName.innerText = tasks.name;
+
+    if(taskName.innerText === '') {
+        taskName.innerText = 'My Task';
     }
 
     taskDescription.innerText = tasks.description;
     taskDate.innerText = tasks.dueDate;
     taskPrio.innerText = tasks.priority;
-   
-        
+
     taskDiv.appendChild(taskName);
     taskDiv.appendChild(taskDescription);
     taskDiv.appendChild(taskDate);
     taskDiv.appendChild(taskPrio);
 
     tasksId.appendChild(taskDiv)
+    deleteButton(taskDiv)
 }
+
+function deleteButton(card) {
+    const delBtn = document.createElement('button');
+    delBtn.id = 'del-btn';
+
+    delBtn.innerText = 'Delete 🗑';
+    card.appendChild(delBtn);
+
+    return card;
+}
+
+tasksId.addEventListener('click', (event) => {
+    if(event.target.tagName === 'BUTTON') {
+        const button = event.target
+        const parent = button.parentNode
+        if(button.id == 'del-btn') {
+            tasksId.removeChild(parent);
+        }
+    }
+})
 
 function submit() {
     
