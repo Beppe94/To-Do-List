@@ -38,7 +38,12 @@ function displayTask(tasks) {
     }
 
     taskDescription.innerText = tasks.description;
-    taskDate.innerText = tasks.dueDate;
+    taskDate.innerText = formatDate(tasks.dueDate);
+    
+    if(taskDate.innerText.includes('undefined')) {
+        taskDate.innerText = 'No Due Date';
+    }
+    
     taskPrio.innerText = tasks.priority;
 
     taskDiv.appendChild(taskName);
@@ -69,6 +74,15 @@ tasksId.addEventListener('click', (event) => {
         }
     }
 })
+
+function formatDate(date) {
+    
+    const day = date.split('-')[2];
+    const month = date.split('-')[1];
+    const year = date.split('-')[0];
+
+    return `${day}/${month}/${year}`;
+}
 
 function submit() {
     
