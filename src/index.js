@@ -1,5 +1,6 @@
 import { openModal, closeModal } from "./modal";
 import { submit } from "./tasks";
+import { loadFromLocalStorage } from "./localstorage";
 
 document.addEventListener('click', function(e) {
     if(e.target.innerText == 'add_circle') {
@@ -17,3 +18,5 @@ submitBtn.addEventListener('click', (e) => {
     e.preventDefault()
     submit();
 });
+
+loadFromLocalStorage()

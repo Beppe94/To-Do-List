@@ -1,4 +1,5 @@
 import { closeModal } from "./modal";
+import { setToLocalStorage, removeFromLocalStorage , todo} from "./localstorage";
 
 class Tasks {
     constructor(name, description, dueDate, priority) {
@@ -8,8 +9,6 @@ class Tasks {
         this.priority = priority;
     }
 }
-
-const taskArray = [];
 
 function getTaskInput() {
     const taskName = document.getElementById('name').value;
@@ -30,13 +29,13 @@ function displayTask(tasks) {
     const taskDescription = document.createElement('p');
     const taskDate = document.createElement('p');
     const taskPrio = document.createElement('p');
-
+    
     taskName.innerText = tasks.name;
-
+    
     if(taskName.innerText === '') {
         taskName.innerText = 'My Task';
     }
-
+    
     taskDescription.innerText = tasks.description;
     taskDate.innerText = formatDate(tasks.dueDate);
     
@@ -45,12 +44,12 @@ function displayTask(tasks) {
     }
     
     taskPrio.innerText = tasks.priority;
-
+    
     taskDiv.appendChild(taskName);
     taskDiv.appendChild(taskDescription);
     taskDiv.appendChild(taskDate);
     taskDiv.appendChild(taskPrio);
-
+    
     tasksId.appendChild(taskDiv)
     deleteButton(taskDiv)
 }
@@ -58,40 +57,45 @@ function displayTask(tasks) {
 function deleteButton(card) {
     const delBtn = document.createElement('button');
     delBtn.id = 'del-btn';
-
+    
+    
     delBtn.innerText = 'Delete 🗑';
     card.appendChild(delBtn);
-
+    
     return card;
 }
 
+const delBtn = document.getElementById('del-btn');
+
 tasksId.addEventListener('click', (event) => {
     if(event.target.tagName === 'BUTTON') {
-        const button = event.target
-        const parent = button.parentNode
+        const button = event.target;
+        const parent = button.parentNode;
+        
         if(button.id == 'del-btn') {
             tasksId.removeChild(parent);
+            todo.forEach((index) => {
+            delBtn.onclick = removeFromLocalStorage(index);
+            });
         }
     }
 })
 
 function formatDate(date) {
-    
     const day = date.split('-')[2];
     const month = date.split('-')[1];
     const year = date.split('-')[0];
-
+    
     return `${day}/${month}/${year}`;
 }
 
 function submit() {
-    
     const newTask = getTaskInput();
-    taskArray.push(newTask);
-
+    displayTask(newTask)
+    setToLocalStorage(newTask);
+    
     document.querySelector('form').reset();
-    displayTask(newTask);
-    closeModal();
+    closeModal()
 }
 
-export { submit }
+export { submit, displayTask }
