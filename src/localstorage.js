@@ -9,7 +9,6 @@ function setToLocalStorage(task) {
 }
 
 function removeFromLocalStorage(index) {
-    
     todo.splice(index, 1)
     localStorage.setItem('todo', JSON.stringify(todo));
 }

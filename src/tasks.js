@@ -58,26 +58,21 @@ function deleteButton(card) {
     const delBtn = document.createElement('button');
     delBtn.id = 'del-btn';
     
-    
     delBtn.innerText = 'Delete 🗑';
     card.appendChild(delBtn);
     
     return card;
 }
 
-const delBtn = document.getElementById('del-btn');
 
-tasksId.addEventListener('click', (event) => {
-    if(event.target.tagName === 'BUTTON') {
-        const button = event.target;
-        const parent = button.parentNode;
-        
-        if(button.id == 'del-btn') {
-            tasksId.removeChild(parent);
-            todo.forEach((index) => {
-            delBtn.onclick = removeFromLocalStorage(index);
-            });
-        }
+tasksId.addEventListener('click', (e) => {
+    
+    for (let i = 0; i < tasksId.children.length; i++){
+
+        tasksId.children[i].onclick = function(){
+            tasksId.removeChild(tasksId.children[i]);
+            removeFromLocalStorage(i);
+        }    
     }
 })
 
@@ -91,8 +86,8 @@ function formatDate(date) {
 
 function submit() {
     const newTask = getTaskInput();
-    displayTask(newTask)
     setToLocalStorage(newTask);
+    displayTask(newTask)
     
     document.querySelector('form').reset();
     closeModal()
