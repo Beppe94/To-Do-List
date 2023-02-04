@@ -65,7 +65,7 @@ function deleteButton(card) {
 }
 
 
-tasksId.addEventListener('click', (e) => {
+tasksId.addEventListener('mouseover', (e) => {
     
     for (let i = 0; i < tasksId.children.length; i++){
 
