@@ -9,6 +9,7 @@ function setToLocalStorage(task) {
 }
 
 function removeFromLocalStorage(index) {
+
     todo.splice(index, 1)
     localStorage.setItem('todo', JSON.stringify(todo));
 }
@@ -20,8 +21,6 @@ function loadFromLocalStorage() {
         displayTask(element);
         });
     }
-    
-    
 }
 
-export { setToLocalStorage, removeFromLocalStorage, loadFromLocalStorage , todo}
+export { setToLocalStorage, removeFromLocalStorage, loadFromLocalStorage }

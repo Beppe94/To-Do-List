@@ -1,5 +1,5 @@
 import { closeModal } from "./modal";
-import { setToLocalStorage, removeFromLocalStorage , todo} from "./localstorage";
+import { setToLocalStorage, removeFromLocalStorage } from "./localstorage";
 
 class Tasks {
     constructor(name, description, dueDate, priority) {
@@ -70,8 +70,11 @@ tasksId.addEventListener('mouseover', (e) => {
     for (let i = 0; i < tasksId.children.length; i++){
 
         tasksId.children[i].onclick = function(){
-            tasksId.removeChild(tasksId.children[i]);
-            removeFromLocalStorage(i);
+            if(e.target.id === 'del-btn') {
+
+                tasksId.removeChild(tasksId.children[i]);
+                removeFromLocalStorage(i);
+            }
         }    
     }
 })
