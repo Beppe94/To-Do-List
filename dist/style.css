@@ -55,7 +55,7 @@ button {
     padding: 1.3rem;
     height: 100vh;
     gap: 5rem;
-    background-color: crimson;
+    background-color: rgb(74, 21, 197);
 }
 
 .sidebar-topHalf {

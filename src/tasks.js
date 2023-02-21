@@ -36,14 +36,14 @@ function displayTask(tasks) {
         taskName.innerText = 'My Task';
     }
     
-    taskDescription.innerText = tasks.description;
+    taskDescription.innerText = 'Description: ' + tasks.description;
     taskDate.innerText = formatDate(tasks.dueDate);
     
     if(taskDate.innerText.includes('undefined')) {
-        taskDate.innerText = 'No Due Date';
+        taskDate.innerText = 'Date: No Due Date';
     }
     
-    taskPrio.innerText = tasks.priority;
+    taskPrio.innerText = 'Priority: ' + tasks.priority;
     
     taskDiv.appendChild(taskName);
     taskDiv.appendChild(taskDescription);
@@ -84,7 +84,7 @@ function formatDate(date) {
     const month = date.split('-')[1];
     const year = date.split('-')[0];
     
-    return `${day}/${month}/${year}`;
+    return `Date: ${day}/${month}/${year}`;
 }
 
 function submit() {

@@ -1,7 +1,8 @@
 import { openModal, closeModal } from "./modal";
 import { submit } from "./tasks";
 import { loadFromLocalStorage } from "./localstorage";
-import { getProject, openForm, closeForm } from "./project";
+import { openForm, closeForm, submitPorject } from "./project";
+import { submitProject } from "./project";
 
 const submitBtn = document.getElementById('submit-task-btn');
 const addProject = document.getElementById('submit-proj-btn');
@@ -32,7 +33,7 @@ submitBtn.addEventListener('click', (e) => {
 
 addProject.addEventListener('click', (e) => {
     e.preventDefault()
-    getProject();
+    submitProject();
 });
 
 loadFromLocalStorage()
